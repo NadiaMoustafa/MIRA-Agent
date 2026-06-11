@@ -2,9 +2,7 @@ import requests # type: ignore
 from typing import Dict, Any
 import time
 import asyncio
-
-# API Key From Finnhub 
-FINNHUB_API_KEY = "d8la6uhr01qut1fa2i30d8la6uhr01qut1fa2i3g"  
+from app.config import config  
 
 async def get_market_data(ticker: str) -> Dict[str, Any]:
     """
@@ -16,12 +14,12 @@ async def get_market_data(ticker: str) -> Dict[str, Any]:
     for attempt in range(3):
         try:
             time.sleep(2) 
-            
-            quote_url = f"https://finnhub.io/api/v1/quote?symbol={ticker}&token={FINNHUB_API_KEY}"
+
+            quote_url = f"https://finnhub.io/api/v1/quote?symbol={ticker}&token={config.FINNHUB_API_KEY}"
             quote_response = requests.get(quote_url, timeout=60) 
             quote = quote_response.json()
             
-            profile_url = f"https://finnhub.io/api/v1/stock/profile2?symbol={ticker}&token={FINNHUB_API_KEY}"
+            profile_url = f"https://finnhub.io/api/v1/stock/profile2?symbol={ticker}&token={config.FINNHUB_API_KEY}"
             profile_response = requests.get(profile_url, timeout=60)
             profile = profile_response.json()
             
@@ -85,7 +83,7 @@ async def get_market_data(ticker: str) -> Dict[str, Any]:
 async def validate_ticker(ticker: str) -> bool:
     """Validate if ticker exists"""
     try:
-        url = f"https://finnhub.io/api/v1/stock/profile2?symbol={ticker}&token={FINNHUB_API_KEY}"
+        url = f"https://finnhub.io/api/v1/stock/profile2?symbol={ticker}&token={config.FINNHUB_API_KEY}"
         response = requests.get(url, timeout=30)
         data = response.json()
         return data.get('name') is not None
