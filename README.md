@@ -55,6 +55,7 @@ cp .env.example .env
 
 ### And, Edit .env file and add your API keys:
 FINNHUB_API_KEY=your_finnhub_key_here
+
 NEWS_API_KEY=your_newsapi_key_here
 
 ### 5. Run the server
@@ -66,7 +67,7 @@ Open http://localhost:8000/docs in your browser
 
 ---
 
-## الجزء 6: API Endpoints
+### API Endpoints
 
 ```markdown
 ##  API Endpoints
