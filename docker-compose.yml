@@ -8,7 +8,6 @@ services:
     environment:
       - FINNHUB_API_KEY=${FINNHUB_API_KEY}
       - NEWS_API_KEY=${NEWS_API_KEY}
-      - GROQ_API_KEY=${GROQ_API_KEY}
     env_file:
       - .env
     restart: unless-stopped
