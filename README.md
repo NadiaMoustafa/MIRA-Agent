@@ -96,14 +96,14 @@ curl -X POST http://localhost:8000/analyze \
 
 # Check status
 curl http://localhost:8000/status/abc-123
-
+```
 
 ---
 
-## الجزء 7: Docker
+## docer 
 
 ```markdown
-##  Docker
+```
 
 ### Build and run with Docker
 ```bash
