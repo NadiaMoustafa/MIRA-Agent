@@ -9,14 +9,20 @@
       "name": "Health Check",
       "request": {
         "method": "GET",
-        "url": "localhost:8000/health"
+        "url": "http://localhost:8000/health"
       }
     },
     {
       "name": "Analyze Stock",
       "request": {
         "method": "POST",
-        "url": "localhost:8000/analyze",
+        "url": "http://localhost:8000/analyze",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "{\"query\": \"Analyze Apple Inc. (AAPL)\"}"
@@ -27,28 +33,35 @@
       "name": "Get Job Status",
       "request": {
         "method": "GET",
-        "url": "localhost:8000/status/{job_id}"
-      }
-    },
-    {
-      "name": "Start Monitoring",
-      "request": {
-        "method": "POST",
-        "url": "localhost:8000/monitor_start?ticker=AAPL&interval_hours=24"
-      }
-    },
-    {
-      "name": "Get Monitor Status",
-      "request": {
-        "method": "GET",
-        "url": "localhost:8000/monitor_status/AAPL"
+        "url": "http://localhost:8000/status/{job_id}"
       }
     },
     {
       "name": "Get All Jobs",
       "request": {
         "method": "GET",
-        "url": "localhost:8000/jobs"
+        "url": "http://localhost:8000/jobs"
+      }
+    },
+    {
+      "name": "Start Monitoring",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8000/monitor_start?ticker=AAPL&interval_hours=24"
+      }
+    },
+    {
+      "name": "Get Monitor Status",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8000/monitor_status/AAPL"
+      }
+    },
+    {
+      "name": "Stop Monitoring",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8000/monitor_stop/AAPL"
       }
     }
   ]
