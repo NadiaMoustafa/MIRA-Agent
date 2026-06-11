@@ -38,14 +38,13 @@ An autonomous AI agent that monitors equity markets, performs deep research on p
 ```bash
 git clone https://github.com/NadiaMoustafa/MIRA-Agent.git
 cd MIRA-Agent
-
-
-
+```
 
 ### 2. Create virtual environment
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
 ### 3. Install dependencies
 pip install -r requirements.txt
