@@ -291,3 +291,7 @@ Real-time metrics exposed via Prometheus + Grafana:
 | **Total** | **~$190/month** |
 
 This framework ensures M.I.R.A. maintains high quality standards as it scales from prototype to production.
+
+### P.S Note : 
+>> i made test files just to test my work when i'm develoing this AI Agent, you if you want to test the agent just run : ```bash
+python test-agent.py```
