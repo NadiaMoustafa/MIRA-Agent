@@ -1,7 +1,7 @@
 {
   "company_ticker": "AAPL",
   "company_name": "Apple Inc",
-  "analysis_summary": "Apple Inc (AAPL) في وضع إيجابي. السعر $291.58 مع تغير 0.3545%. الأخبار تميل للإيجابية (sentiment=0.333).",
+  "analysis_summary": "Apple Inc (AAPL) is in a positive position. Price at $291.58 with 0.3545% change. News sentiment is positive (sentiment=0.333).",
   "sentiment_score": 0.333,
   "market_snapshot": {
     "price": 291.58,
@@ -23,9 +23,9 @@
     }
   },
   "key_findings": [
-    "سعر السهم: $291.58 (تغير 0.3545%)",
-    "تحليل المشاعر: 0.333 من -1 إلى 1",
-    "الارتباط مع S&P 500: 0.82"
+    "Stock price: $291.58 (0.3545% change)",
+    "Sentiment analysis: 0.333 (range -1 to 1)",
+    "S&P 500 correlation: 0.82"
   ],
   "tools_used": ["market_data", "news_sentiment", "peer_correlation"],
   "citation_sources": [],
