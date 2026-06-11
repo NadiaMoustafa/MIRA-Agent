@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mira-agent:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - FINNHUB_API_KEY=${FINNHUB_API_KEY}
+      - NEWS_API_KEY=${NEWS_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    env_file:
+      - .env
+    restart: unless-stopped

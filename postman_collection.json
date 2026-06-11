@@ -1,0 +1,55 @@
+{
+  "info": {
+    "name": "M.I.R.A. Investment Agent API",
+    "description": "API for autonomous investment analysis agent",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": "localhost:8000/health"
+      }
+    },
+    {
+      "name": "Analyze Stock",
+      "request": {
+        "method": "POST",
+        "url": "localhost:8000/analyze",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"query\": \"Analyze Apple Inc. (AAPL)\"}"
+        }
+      }
+    },
+    {
+      "name": "Get Job Status",
+      "request": {
+        "method": "GET",
+        "url": "localhost:8000/status/{job_id}"
+      }
+    },
+    {
+      "name": "Start Monitoring",
+      "request": {
+        "method": "POST",
+        "url": "localhost:8000/monitor_start?ticker=AAPL&interval_hours=24"
+      }
+    },
+    {
+      "name": "Get Monitor Status",
+      "request": {
+        "method": "GET",
+        "url": "localhost:8000/monitor_status/AAPL"
+      }
+    },
+    {
+      "name": "Get All Jobs",
+      "request": {
+        "method": "GET",
+        "url": "localhost:8000/jobs"
+      }
+    }
+  ]
+}
