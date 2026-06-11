@@ -293,7 +293,7 @@ Real-time metrics exposed via Prometheus + Grafana:
 This framework ensures M.I.R.A. maintains high quality standards as it scales from prototype to production.
 
 ### P.S Note : 
-> i made test files just to test my work when i'm develoing this AI Agent, you if you want to test the agent just run :
+> i made test files just to test my work when i'm developing this AI Agent,  if you want to test the agent just run :
 ```bash
 python test_agent.py 
 ```
