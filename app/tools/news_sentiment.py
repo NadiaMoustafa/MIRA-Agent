@@ -2,9 +2,7 @@ import requests # type: ignore
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer # type: ignore
 from typing import Dict, Any, List
 import time
-
-# API Key from NewsAPI
-NEWS_API_KEY = "dfe6e0290d20492b8cc8db4b87a58d8c"
+from app.config import config
 
 
 analyzer = SentimentIntensityAnalyzer()
@@ -26,7 +24,7 @@ async def get_news_sentiment(company_name: str, ticker: str) -> Dict[str, Any]:
             "q": search_query,
             "sortBy": "publishedAt",
             "pageSize": 10,  
-            "apiKey": NEWS_API_KEY,
+            "apiKey": config.NEWS_API_KEY,
             "language": "en"
         }
         
@@ -131,7 +129,7 @@ async def validate_news_api() -> bool:
     """NewsAPI is oK! """
     try:
         url = "https://newsapi.org/v2/top-headlines"
-        params = {"country": "us", "apiKey": NEWS_API_KEY, "pageSize": 1}
+        params = {"country": "us", "apiKey": config.NEWS_API_KEY, "pageSize": 1}
         response = requests.get(url, params=params, timeout=10)
         return response.json().get('status') == 'ok'
     except:
