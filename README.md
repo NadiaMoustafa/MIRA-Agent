@@ -100,10 +100,7 @@ curl http://localhost:8000/status/abc-123
 
 ---
 
-## docer 
-
-```markdown
-```
+## Docer :
 
 ### Build and run with Docker
 ```bash
@@ -112,12 +109,9 @@ docker run -p 8000:8000 --env-file .env mira-agent
 OR
 docker-compose up --build
 
-
+```
 ---
 
-## الجزء 8: The 3 Tools
-
-```markdown
 ##  The Three Tools
 
 ### Tool 1: Market Data (`market_data.py`)
