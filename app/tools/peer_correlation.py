@@ -3,8 +3,8 @@ from typing import Dict, Any, List
 import asyncio
 import time
 import math
+from app.config import config
 
-FINNHUB_API_KEY = "d8la6uhr01qut1fa2i30d8la6uhr01qut1fa2i3g"  
 
 # Defining competitors for each sector
 PEERS_MAP = {
@@ -72,7 +72,7 @@ async def get_current_price(ticker: str) -> float:
     for attempt in range(2):
         try:
             await asyncio.sleep(1)
-            url = f"https://finnhub.io/api/v1/quote?symbol={ticker}&token={FINNHUB_API_KEY}"
+            url = f"https://finnhub.io/api/v1/quote?symbol={ticker}&token={config.FINNHUB_API_KEY}"
             response = requests.get(url, timeout=45)
             data = response.json()
             return data.get('c', 0)
