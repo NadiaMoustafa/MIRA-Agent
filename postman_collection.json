@@ -10,7 +10,15 @@
       "request": {
         "method": "GET",
         "url": "http://localhost:8000/health"
-      }
+      },
+      "response": [
+        {
+          "name": "Success Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\"status\": \"alive\", \"service\": \"M.I.R.A.\", \"timestamp\": \"2026-06-11T18:30:00\"}"
+        }
+      ]
     },
     {
       "name": "Analyze Stock",
@@ -27,42 +35,120 @@
           "mode": "raw",
           "raw": "{\"query\": \"Analyze Apple Inc. (AAPL)\"}"
         }
-      }
+      },
+      "response": [
+        {
+          "name": "Success Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\"job_id\": \"abc-123-def-456\", \"status\": \"pending\"}"
+        }
+      ]
     },
     {
       "name": "Get Job Status",
       "request": {
         "method": "GET",
         "url": "http://localhost:8000/status/{job_id}"
-      }
+      },
+      "response": [
+        {
+          "name": "Pending Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\"job_id\": \"abc-123\", \"status\": \"pending\", \"created_at\": \"2026-06-11T18:30:00\", \"updated_at\": \"2026-06-11T18:30:00\", \"result\": null, \"error\": null}"
+        },
+        {
+          "name": "Running Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\"job_id\": \"abc-123\", \"status\": \"running\", \"created_at\": \"2026-06-11T18:30:00\", \"updated_at\": \"2026-06-11T18:30:05\", \"result\": null, \"error\": null}"
+        },
+        {
+          "name": "Completed Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\"job_id\": \"abc-123\", \"status\": \"completed\", \"created_at\": \"2026-06-11T18:30:00\", \"updated_at\": \"2026-06-11T18:30:30\", \"result\": {\"company_ticker\": \"AAPL\", \"company_name\": \"Apple Inc\", \"analysis_summary\": \"Apple Inc (AAPL) is in a positive position. Price at $291.58 with 0.3545% change.\", \"sentiment_score\": 0.333, \"market_snapshot\": {\"price\": 291.58, \"daily_change\": 1.03, \"daily_change_percent\": 0.3545, \"volume\": 0, \"market_cap\": 4282539.21, \"pe_ratio\": null, \"week_52_high\": 0, \"week_52_low\": 0, \"last_two_quarterly_revenues\": []}, \"correlation_analysis\": {\"vs_sp500\": 0.82, \"vs_sector_etf\": 0.82, \"vs_peers\": {\"MSFT\": 0.72, \"GOOGL\": 0.75}}, \"key_findings\": [\"Stock price: $291.58\", \"Sentiment: 0.333\", \"S&P 500 correlation: 0.82\"], \"tools_used\": [\"market_data\", \"news_sentiment\", \"peer_correlation\"], \"citation_sources\": [], \"generated_at\": \"2026-06-11T18:30:30\"}, \"error\": null}"
+        },
+        {
+          "name": "Not Found Response",
+          "status": "Not Found",
+          "code": 404,
+          "body": "{\"detail\": \"Job not found\"}"
+        }
+      ]
     },
     {
       "name": "Get All Jobs",
       "request": {
         "method": "GET",
         "url": "http://localhost:8000/jobs"
-      }
+      },
+      "response": [
+        {
+          "name": "Success Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\"total_jobs\": 2, \"jobs\": {\"abc-123\": {\"job_id\": \"abc-123\", \"status\": \"completed\"}, \"def-456\": {\"job_id\": \"def-456\", \"status\": \"running\"}}}"
+        }
+      ]
     },
     {
       "name": "Start Monitoring",
       "request": {
         "method": "POST",
         "url": "http://localhost:8000/monitor_start?ticker=AAPL&interval_hours=24"
-      }
+      },
+      "response": [
+        {
+          "name": "Success Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\"status\": \"started\", \"ticker\": \"AAPL\", \"interval_hours\": 24}"
+        }
+      ]
     },
     {
       "name": "Get Monitor Status",
       "request": {
         "method": "GET",
         "url": "http://localhost:8000/monitor_status/AAPL"
-      }
+      },
+      "response": [
+        {
+          "name": "Active Monitoring Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\"ticker\": \"AAPL\", \"is_monitored\": true, \"last_run\": \"2026-06-11T18:30:00\", \"alert_count\": 1, \"alerts\": [{\"timestamp\": \"2026-06-11T18:30:00\", \"triggers\": [\"Price changed by 5.2%\"], \"analysis\": {}}]}"
+        },
+        {
+          "name": "No Monitoring Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\"ticker\": \"AAPL\", \"is_monitored\": false, \"last_run\": null, \"alert_count\": 0, \"alerts\": []}"
+        }
+      ]
     },
     {
       "name": "Stop Monitoring",
       "request": {
         "method": "POST",
         "url": "http://localhost:8000/monitor_stop/AAPL"
-      }
+      },
+      "response": [
+        {
+          "name": "Success Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\"status\": \"stopped\", \"ticker\": \"AAPL\"}"
+        },
+        {
+          "name": "Not Found Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\"status\": \"not_found\", \"ticker\": \"AAPL\"}"
+        }
+      ]
     }
   ]
 }
