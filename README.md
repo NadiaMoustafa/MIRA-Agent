@@ -70,6 +70,7 @@ Open http://localhost:8000/docs in your browser
 ### API Endpoints
 
 ```markdown
+```
 ##  API Endpoints
 
 | Method | Endpoint | Description |
