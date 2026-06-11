@@ -138,7 +138,7 @@ class MIRAAgent:
         # generate the main points
         key_findings = [
             f"Share price: ${price} (change {change_percent}%)",
-            f"Emotion analysis : {sentiment} من -1 إلى 1",
+            f"Emotion analysis : {sentiment} (range -1 to 1)",
             f"correlation with S&P 500: {peer_data.get('vs_sp500', 0)}"
         ]
         
