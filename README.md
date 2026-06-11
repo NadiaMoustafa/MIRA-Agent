@@ -147,6 +147,8 @@ The agent critiques its own data quality and triggers additional research when:
 ### Start monitoring
 ```bash
 POST /monitor_start?ticker=AAPL&interval_hours=24
+```
 
-
+### Test 1: Valid Ticker (AAPL)
+- Correlation with itself: Implied as 1.0 (standard mathematical property)
 
