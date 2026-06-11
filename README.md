@@ -52,6 +52,8 @@ pip install -r requirements.txt
 ### 4. Set up API keys
 cp .env.example .env
 
+and copy the APIKeys and re-write yours.
+
 
 ### And, Edit .env file and add your API keys:
 FINNHUB_API_KEY=your_finnhub_key_here
